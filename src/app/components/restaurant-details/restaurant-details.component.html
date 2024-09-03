@@ -1,0 +1,61 @@
+<div *ngIf="restaurant; else noRestaurant" class="restaurant-details">
+    <header class="header">
+        <h1>{{ restaurant.name }}</h1>
+        <p class="description">{{ restaurant.description }}</p>
+        <p class="location">Location: {{ restaurant.location }}</p>
+    </header>
+
+    <section  class="image-section">
+        <h2>Images & Videos:</h2>
+        <div class="image-gallery">
+            <ng-container *ngFor="let media of restaurant.images">
+                <ng-container *ngIf="media.startsWith('data:image'); else videoTemplate">
+                    <img [src]="media" alt="{{ restaurant.name }}" />
+                </ng-container>
+                <ng-template #videoTemplate>
+                   
+                    <video class="video-container" controls>
+                        <source [src]="media" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                   
+                </ng-template>
+            </ng-container>        </div>
+        <div class="custom-file-upload">
+            <label for="file-upload" class="custom-upload-button">Upload Images</label>
+            <input id="file-upload" type="file" (change)="onImageUpload($event)" multiple />
+        </div>
+        </section>
+
+    <section *ngIf="restaurant.menu && restaurant.menu.length > 0" class="menu-section">
+        <h2>Menu:</h2>
+        <ul>
+            <li *ngFor="let item of restaurant.menu">{{ item }}</li>
+        </ul>
+    </section>
+
+    <section class="add-menu-section">
+        <form [formGroup]="menuForm"  >
+            <mat-form-field appearance="outline">
+                <mat-label>Add Menu Item</mat-label>
+                <input matInput formControlName="menuItem" placeholder="Enter menu item" />
+            </mat-form-field>
+ 
+            <button (click)="addMenuItem()" mat-mini-fab  color="primary" type="submit" class="add-menu">
+                <mat-icon>add</mat-icon>
+            </button>
+        </form>
+    </section>
+
+    <button (click)="goBack()" class="back-button">Back to List</button>
+</div>
+
+<ng-template #noRestaurant>
+    <p class="no-details-message">No restaurant details found.</p>
+</ng-template>
+
+
+
+
+
+ 

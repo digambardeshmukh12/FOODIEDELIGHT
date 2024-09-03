@@ -1,0 +1,40 @@
+<div class="restaurant-form-container">
+    <h2>{{ isEditMode ? 'Edit Restaurant' : 'Add Restaurant' }}</h2>
+  
+    <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" />
+        <div *ngIf="restaurantForm.controls['name'].invalid && restaurantForm.controls['name'].touched">
+          <p class="error">Name is required.</p>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="discription-textaread" formControlName="description"></textarea>
+        <div *ngIf="restaurantForm.controls['description'].invalid && restaurantForm.controls['description'].touched">
+          <p class="error">Description is required.</p>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" type="text" />
+        <div *ngIf="restaurantForm.controls['location'].invalid && restaurantForm.controls['location'].touched">
+          <p class="error">Location is required.</p>
+        </div>
+      </div>
+  
+      
+  
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input id="rating" formControlName="rating" type="number" min="0" max="10" step="1" />
+      </div>
+  
+      <button type="submit" [disabled]="restaurantForm.invalid">{{ isEditMode ? 'Update' : 'Add' }} Restaurant</button>
+ 
+    </form>
+  </div>
+  

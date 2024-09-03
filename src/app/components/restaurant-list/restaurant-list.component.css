@@ -1,0 +1,147 @@
+/* Container for the restaurant list */
+.restaurant-list {
+    padding: 1rem;
+    background-color: #f5f5f5; /* Light background for contrast */
+}
+
+/* Remove default list styling */
+.restaurant-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual restaurant item styling */
+.restaurant-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #ffffff; /* White background for cleanliness */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative; /* For additional pseudo-elements */
+}
+
+/* Hover effect for restaurant items */
+.restaurant-item:hover {
+    background-color: #e0f7fa; /* Light cyan background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Restaurant name styling */
+.restaurant-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 1rem;
+    text-overflow: ellipsis; /* For long names */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Container for actions */
+.restaurant-actions {
+    display: flex;
+    margin-top: 5px;
+    gap: 0.8rem;
+}
+
+/* Action buttons styling */
+.action-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+/* Action button colors */
+.edit-button {
+    background-color: #4caf50; /* Green */
+}
+
+.delete-button {
+    background-color: #f44336; /* Red */
+}
+
+.details-button {
+    background-color: #2196f3; /* Blue */
+}
+
+/* Hover effect for action buttons */
+.action-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9; /* Slight fade effect */
+}
+
+/* No restaurants message styling */
+.no-restaurants-message {
+    font-size: 1.125rem;
+    color: #777;
+    text-align: center;
+    margin-top: 2rem;
+    animation: fadeIn 1s ease; /* Fade-in animation */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .restaurant-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .restaurant-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+.star-rating {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.star-icon {
+    font-size: 24px;
+    color: #ddd; /* Gray color for empty stars */
+}
+
+.star-icon.full {
+    color: gold; /* Gold color for full stars */
+}
+
+.star-icon.empty {
+    color: #ddd; /* Gray color for empty stars */
+}
+
+@media (max-width: 768px) {
+    .star-icon {
+        font-size: 20px;
+    }
+}

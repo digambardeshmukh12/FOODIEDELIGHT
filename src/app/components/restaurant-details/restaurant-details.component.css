@@ -1,0 +1,160 @@
+/* General Styles */
+.restaurant-details {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .location {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .image-section {
+    margin-top: 2rem;
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .image-gallery img {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-section {
+    margin-top: 2rem;
+  }
+  
+  .menu-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-section li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .add-menu-section {
+    margin-top: 2rem;
+  }
+  
+  .add-menu {
+    margin-top: 1rem;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #1976d2;
+  }
+  
+  .no-details-message {
+    font-size: 1.25rem;
+    color: #777;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .header h1 {
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  
+    .location {
+      font-size: 0.875rem;
+    }
+  
+    .image-gallery img {
+      max-height: 100px;
+    }
+  
+    .back-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header h1 {
+      font-size: 1.25rem;
+    }
+  
+    .description,
+    .location {
+      font-size: 0.875rem;
+    }
+  }
+  .add-menu{
+    margin-left: 10px;
+  }
+
+
+
+  .video-container{
+    width: 350px;
+    height: 200px;
+  }
+
+  .custom-file-upload {
+    margin-top: 15px;
+}
+
+input[type="file"] {
+    display: none; /* Hide the default file input */
+}
+
+.custom-upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.custom-upload-button:hover {
+    background-color: #0056b3;
+}

@@ -20,7 +20,9 @@ export class RestaurantDetailsComponent {
     private fb: FormBuilder
   ) {
     this.menuForm = this.fb.group({
-      menuItem: ['', Validators.required]
+      menuItem: ['', Validators.required],
+      menurate: [0, Validators.required]
+
     });
   }
 
@@ -37,10 +39,16 @@ export class RestaurantDetailsComponent {
   }
 
   addMenuItem(): void {
+    debugger
     if (this.menuForm.valid && this.restaurant) {
       const newItem = this.menuForm.value.menuItem;
+      const itemrate = this.menuForm.value.menurate;
       this.restaurant.menu = this.restaurant.menu || [];
-      this.restaurant.menu.push(newItem);
+      const newMenu = {
+        item : newItem,
+        rate : itemrate
+      }
+      this.restaurant.menu.push(newMenu);
 
       this.restaurantService.updateRestaurant2(this.restaurant).subscribe(
         () => {

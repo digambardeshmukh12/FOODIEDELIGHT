@@ -7,7 +7,7 @@ import { Restaurant } from '../models/restaurant.model';
   providedIn: 'root'
 })
 export class RestaurantService {
-  private apiUrl = 'http://localhost:3000/restaurants'; // Adjust the URL as needed
+  private apiUrl = 'https://66d7e81537b1cadd8052a091.mockapi.io/restaurants/restaurants'; // Adjust the URL as needed
 
   constructor(private http: HttpClient) {}
 

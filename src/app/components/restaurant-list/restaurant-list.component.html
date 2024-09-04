@@ -1,11 +1,23 @@
 
 <div class="search-container">
     <mat-form-field appearance="outline">
-      <mat-label>Search Restaurants</mat-label>
-      <input matInput [(ngModel)]="searchinput" (input)="onSearch()" placeholder="Type to search" />
-      <mat-icon matSuffix>search</mat-icon>
+        <mat-label>Search Restaurants</mat-label>
+        <input matInput [(ngModel)]="searchinput" (input)="onSearch()" placeholder="Type to search" />
+        <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-  </div>
+
+    <!-- Rating Filter -->
+    <mat-form-field appearance="outline" class="rating-filter">
+        <mat-label>Filter by Rating</mat-label>
+        <mat-select [(ngModel)]="selectedRating" (selectionChange)="onSearch()">
+            <mat-option value="">All Ratings</mat-option>
+            <mat-option *ngFor="let rating of availableRatings" [value]="rating">
+                {{ rating }} Stars & Up
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
 
 <div *ngIf="restaurants.length > 0; else noRestaurants" class="restaurant-list">
     <ul>

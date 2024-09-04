@@ -22,23 +22,33 @@
                 </ng-template>
             </ng-container>        </div>
         <div class="custom-file-upload">
-            <label for="file-upload" class="custom-upload-button">Upload Images</label>
+            <label for="file-upload" class="custom-upload-button">Upload Media</label>
             <input id="file-upload" type="file" (change)="onImageUpload($event)" multiple />
         </div>
         </section>
 
-    <section *ngIf="restaurant.menu && restaurant.menu.length > 0" class="menu-section">
-        <h2>Menu:</h2>
-        <ul>
-            <li *ngFor="let item of restaurant.menu">{{ item }}</li>
-        </ul>
-    </section>
+        <section *ngIf="restaurant.menu && restaurant.menu.length > 0" class="menu-section">
+            <h2 class="menu-title">Menu</h2>
+            <ul class="menu-list">
+                <li *ngFor="let item of restaurant.menu" class="menu-item">
+                    <span class="menu-item-name">{{ item.item }}</span>
+                    <span class="menu-item-separator"> - </span>
+                    <span class="menu-item-rate">{{ item.rate }} Rupees</span>
+                </li>
+            </ul>
+        </section>
+        
 
     <section class="add-menu-section">
         <form [formGroup]="menuForm"  >
             <mat-form-field appearance="outline">
                 <mat-label>Add Menu Item</mat-label>
                 <input matInput formControlName="menuItem" placeholder="Enter menu item" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="menu-rate">
+                <mat-label>Add Menu Item</mat-label>
+                <input matInput formControlName="menurate" placeholder="Enter Item Rate" />
             </mat-form-field>
  
             <button (click)="addMenuItem()" mat-mini-fab  color="primary" type="submit" class="add-menu">

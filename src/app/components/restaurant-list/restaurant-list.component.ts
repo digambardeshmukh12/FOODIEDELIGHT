@@ -90,19 +90,31 @@ export class RestaurantListComponent {
     return stars;
   }
 
-
-
-  searchinput = ''
+  availableRatings: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  selectedRating = 0
+   searchinput = ''
   onSearch(): void {
     debugger
+    this.filteredRestaurants = this.AllrestaurantsStore.filter(restaurant => {
+      const matchesSearch = restaurant.name.toLowerCase().includes(this.searchinput.toLowerCase());
+      const matchesRating = this.selectedRating ? restaurant.rating! >= this.selectedRating : true;
+      return matchesSearch && matchesRating;
+    });
+    this.countRestro = this.filteredRestaurants.length
+
+    this.updatePagination();
+
+
+  }
+
+  OnFilter(){
+     debugger
     this.filteredRestaurants = this.AllrestaurantsStore.filter(restaurant =>
       restaurant.name.toLowerCase().includes(this.searchinput.toLowerCase())
     );
     this.countRestro = this.filteredRestaurants.length
 
     this.updatePagination();
-
-
   }
  
   onPageChange(event: any): void {

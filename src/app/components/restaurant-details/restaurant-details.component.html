@@ -6,7 +6,9 @@
     </header>
 
     <section  class="image-section">
-        <h2>Images & Videos:</h2>
+        <div class="Heading-div">
+            <span class="subheading">Images & Videos:<span class="sizerestriction">(max size 30kb)</span></span> 
+        </div>
         <div class="image-gallery">
             <ng-container *ngFor="let media of restaurant.images">
                 <ng-container *ngIf="media.startsWith('data:image'); else videoTemplate">

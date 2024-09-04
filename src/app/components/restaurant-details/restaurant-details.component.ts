@@ -74,7 +74,7 @@ export class RestaurantDetailsComponent {
         if (this.restaurant) {
           this.restaurant.images = this.restaurant.images || [];
           this.restaurant.images.push(...base64Images);
-
+          console.log(this.restaurant , 'hj')
           // Update the restaurant in the backend
           this.restaurantService.updateRestaurant2(this.restaurant).subscribe(
             () => console.log('Images updated successfully'),
